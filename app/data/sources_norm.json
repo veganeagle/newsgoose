@@ -1,0 +1,74 @@
+[
+  {
+    "source_key": "cbc",
+    "display_name": "CBC News",
+    "feed_url": "https://www.cbc.ca/webfeed/rss/rss-topstories",
+    "tile_type": "news",
+    "icon_url": "https://www.cbc.ca/favicon.ico",
+    "is_enabled": true,
+    "sort_order": 1
+  },
+  {
+    "source_key": "global",
+    "display_name": "Global News",
+    "feed_url": "https://globalnews.ca/feed/",
+    "tile_type": "news",
+    "icon_url": "https://www.google.com/s2/favicons?sz=64&domain=globalnews.ca",
+    "is_enabled": true,
+    "sort_order": 2
+  },
+  {
+    "source_key": "national_post",
+    "display_name": "National Post",
+    "feed_url": "https://nationalpost.com/feed/",
+    "tile_type": "news",
+    "icon_url": "https://www.google.com/s2/favicons?sz=64&domain=nationalpost.com",
+    "is_enabled": true,
+    "sort_order": 3
+  },
+  {
+    "source_key": "citynews",
+    "display_name": "CityNews",
+    "feed_url": "https://toronto.citynews.ca/feed/",
+    "tile_type": "news",
+    "icon_url": "https://www.google.com/s2/favicons?sz=64&domain=citynews.ca",
+    "is_enabled": true,
+    "sort_order": 4
+  },
+  {
+    "source_key": "financial_post",
+    "display_name": "Financial Post",
+    "feed_url": "https://financialpost.com/feed/",
+    "tile_type": "news",
+    "icon_url": "https://www.google.com/s2/favicons?sz=64&domain=financialpost.com",
+    "is_enabled": true,
+    "sort_order": 5
+  },
+  {
+    "source_key": "sportsnet",
+    "display_name": "Sportsnet",
+    "feed_url": "https://www.sportsnet.ca/feed/",
+    "tile_type": "news",
+    "icon_url": "https://www.google.com/s2/favicons?sz=64&domain=sportsnet.ca",
+    "is_enabled": true,
+    "sort_order": 6
+  },
+  {
+    "source_key": "daily_hive",
+    "display_name": "Daily Hive",
+    "feed_url": "https://dailyhive.com/feed",
+    "tile_type": "news",
+    "icon_url": "https://www.google.com/s2/favicons?sz=64&domain=dailyhive.com",
+    "is_enabled": true,
+    "sort_order": 7
+  },
+  {
+    "source_key": "science_news",
+    "display_name": "Science News",
+    "feed_url": "https://www.sciencenews.org/feed",
+    "tile_type": "news",
+    "icon_url": "https://www.google.com/s2/favicons?sz=64&domain=sciencenews.org",
+    "is_enabled": true,
+    "sort_order": 8
+  }
+]

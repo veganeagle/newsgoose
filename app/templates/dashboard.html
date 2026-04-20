@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NewsGoose</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/static/site_vert.css?v=5" />
+  <link rel="manifest" href="/static/manifest.json" />
+  <meta name="theme-color" content="#0f172a" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <script src="https://unpkg.com/htmx.org@1.9.12"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.6/Sortable.min.js"></script>
+
+</head>
+<body>
+  <header class="app-header">
+  <div class="app-brand">
+    <img class="app-logo" src="/static/icon.png" alt="NewsGoose" />
+    <div class="app-title">NewsGoose</div>
+  </div>
+
+  <div class="app-header-actions">
+    <button type="button" class="header-layout-btn" onclick="openLayoutModal()">Layout</button>
+  </div>
+</header>
+  <main class="dashboard-page">
+    <section class="dashboard" id="dashboard"></section>
+    <div class="weather-row">
+      <section
+        class="weather-shell"
+        id="weather-bar"
+        hx-trigger="load, every 1800s"
+        hx-swap="outerHTML"
+      >      
+        <div class="weather-bar loading">Loading weather...</div>
+      </section>
+    </div>
+    
+    <div class="layout-modal-backdrop" id="layout-modal-backdrop" hidden>
+      <div class="layout-modal" role="dialog" aria-modal="true" aria-labelledby="layout-modal-title">
+        <div class="layout-modal-header">
+          <div class="layout-modal-title" id="layout-modal-title">Assign Sources</div>
+        </div>
+        <div class="layout-modal-content">
+          <div class="layout-source-list" id="layout-source-list"></div>
+          <div class="layout-modal-arrow">Drag to select →</div>
+          <div class="layout-grid-panel">
+            <div class="layout-slot-grid" id="layout-slot-grid"></div>
+            <div class="layout-modal-actions">
+              <button type="button" class="layout-btn" onclick="closeLayoutModal()">Cancel</button>
+              <button type="button" class="layout-btn layout-btn-primary" onclick="applyLayoutModal()">Apply</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    const ALL_SOURCES = {{ sources_json|tojson }};
+    const SLOT_STORAGE_KEY = "news.slotAssignments.v1";
+    const DESKTOP_SLOT_COUNT = 4;
+    const MOBILE_BREAKPOINT = 900;
+    let modalAssignments = [];
+    let draggedSourceKey = null;
+    let mobileSortable = null;
+
+    function defaultSlotAssignments() { return ALL_SOURCES.map(source => source.source_key);}
+    function loadSlotAssignments() {
+      const defaults = defaultSlotAssignments();
+      const validKeys = new Set(defaults);
+      try {  const raw = localStorage.getItem(SLOT_STORAGE_KEY);
+        if (!raw) {
+          localStorage.setItem(SLOT_STORAGE_KEY, JSON.stringify(defaults));
+          return defaults;
+        }
+        const parsed = JSON.parse(raw);
+        if (!Array.isArray(parsed)) {
+          localStorage.setItem(SLOT_STORAGE_KEY, JSON.stringify(defaults));
+          return defaults;
+        }
+        const seen = new Set();
+        const cleaned = [];
+        parsed.forEach(key => {  if (validKeys.has(key) && !seen.has(key)) {
+            seen.add(key);
+            cleaned.push(key);}
+        });
+
+        for (const key of defaults) { if (!cleaned.includes(key)) cleaned.push(key);}
+        localStorage.setItem(SLOT_STORAGE_KEY, JSON.stringify(cleaned));
+        return cleaned;
+      } catch {
+        localStorage.setItem(SLOT_STORAGE_KEY, JSON.stringify(defaults));
+        return defaults;
+      }
+    }
+
+        function getSourceByKey(sourceKey) {
+      return ALL_SOURCES.find(source => source.source_key === sourceKey);
+    }
+
+    function sourceTileHtml(sourceKey) {
+      const source = getSourceByKey(sourceKey);
+      if (!source) return "";
+      return `
+        <div class="layout-mini-tile">
+          <img class="layout-mini-icon" src="${source.icon_url}" alt="" />
+          <div class="layout-mini-name">${source.display_name}</div>
+        </div>
+      `;
+    }
+
+    function renderLayoutSourceList() {
+      const el = document.getElementById("layout-source-list");
+
+      el.innerHTML = ALL_SOURCES.map(source => `
+        <div
+          class="layout-source-item"
+          draggable="true"
+          data-source-key="${source.source_key}"
+        >
+          ${sourceTileHtml(source.source_key)}
+        </div>
+      `).join("");
+
+      el.querySelectorAll(".layout-source-item").forEach(item => {
+        item.addEventListener("dragstart", () => {
+          draggedSourceKey = item.dataset.sourceKey;
+        });
+
+        item.addEventListener("dragend", () => {
+          draggedSourceKey = null;
+        });
+      });
+    }
+
+    function renderLayoutSlotGrid() {
+      const el = document.getElementById("layout-slot-grid");
+      el.innerHTML = modalAssignments.slice(0, DESKTOP_SLOT_COUNT).map((sourceKey, i) => `
+        <div
+          class="layout-slot"
+          data-slot-index="${i}"
+        >
+          <div class="layout-slot-label">Frame ${i + 1}</div>
+          <div class="layout-slot-tile">
+            ${sourceTileHtml(sourceKey)}
+          </div>
+        </div>
+      `).join("");
+
+      el.querySelectorAll(".layout-slot").forEach(slot => {
+        slot.addEventListener("dragover", e => {
+          e.preventDefault();
+          slot.classList.add("is-dragover");
+        });
+
+        slot.addEventListener("dragleave", () => {
+          slot.classList.remove("is-dragover");
+        });
+
+        slot.addEventListener("drop", e => {
+          e.preventDefault();
+          slot.classList.remove("is-dragover");
+          if (!draggedSourceKey) return;
+          const idx = Number(slot.dataset.slotIndex);
+          const existingIndex = modalAssignments.indexOf(draggedSourceKey);
+          if (existingIndex !== -1) { modalAssignments[existingIndex] = modalAssignments[idx];}
+          modalAssignments[idx] = draggedSourceKey;
+
+          renderLayoutSlotGrid();
+        });
+      });
+    }
+
+    function openLayoutModal() {
+      if (window.innerWidth <= MOBILE_BREAKPOINT) return;
+      modalAssignments = loadSlotAssignments().slice(0, DESKTOP_SLOT_COUNT);
+      renderLayoutSourceList();
+      renderLayoutSlotGrid();
+      document.getElementById("layout-modal-backdrop").hidden = false;
+    }
+
+    function closeLayoutModal() {
+      document.getElementById("layout-modal-backdrop").hidden = true;
+      draggedSourceKey = null;
+    }
+
+    function applyLayoutModal() {
+      const assigned = loadSlotAssignments();
+      assigned.splice(0, DESKTOP_SLOT_COUNT, ...modalAssignments);
+      localStorage.setItem(SLOT_STORAGE_KEY, JSON.stringify(assigned));
+      closeLayoutModal();
+      renderDesktopSlots();
+    }
+
+    function renderDesktopSlots() {
+      const dashboard = document.getElementById("dashboard");
+      const assigned = loadSlotAssignments().slice(0, DESKTOP_SLOT_COUNT);
+      dashboard.innerHTML = assigned.map((sourceKey, i) => {
+        const slotIndex = i + 1;
+        const source = ALL_SOURCES.find(s => s.source_key === sourceKey);
+        const displayName = source ? source.display_name : sourceKey;
+
+        return `
+          <section
+            class="tile-shell"
+            id="tile-slot-${slotIndex}"
+            data-slot-index="${slotIndex}"
+            data-source-key="${sourceKey}"
+            hx-get="/tile/${sourceKey}?slot_index=${slotIndex}"
+            hx-trigger="load"
+            hx-swap="outerHTML"
+          >
+            <div class="tile loading">Loading ${displayName}...</div>
+          </section>
+        `;
+      }).join("");
+
+      htmx.process(dashboard);
+    }
+
+    function renderMobileSources() {
+      const dashboard = document.getElementById("dashboard");
+      const assigned = loadSlotAssignments();
+
+      dashboard.innerHTML = assigned.map(sourceKey => {
+        const source = getSourceByKey(sourceKey);
+        if (!source) return "";
+        return `
+          <section
+            class="tile-shell"
+            id="tile-${source.source_key}"
+            data-source-key="${source.source_key}"
+            hx-get="/tile/${source.source_key}"
+            hx-trigger="load"
+            hx-swap="outerHTML"
+          >
+            <div class="tile loading">Loading ${source.display_name}...</div>
+          </section>
+        `;
+      }).join("");
+      htmx.process(dashboard);
+      initMobileSorting();
+    }
+
+
+    function initMobileSorting() {
+      if (window.innerWidth > MOBILE_BREAKPOINT) return;
+      const dashboard = document.getElementById("dashboard");
+      if (!dashboard) return;
+      if (mobileSortable) {
+        mobileSortable.destroy();
+        mobileSortable = null;}
+      mobileSortable = new Sortable(dashboard, {
+        disabled: !!document.querySelector(".tile-shell.mobile-open"),
+        animation: 150,
+        delay: 250,
+        delayOnTouchOnly: true,
+        draggable: ".tile-shell",
+        handle: ".tile-header",
+        direction: "vertical",
+        filter: ".mobile-open .tile-header",
+        fallbackTolerance: 5,
+        onMove: () => {return !document.querySelector(".tile-shell.mobile-open");},
+        onEnd: () => {
+          const seen = new Set();
+          const orderedKeys = [];
+          dashboard.querySelectorAll(".tile-shell").forEach(el => {
+            const key = el.dataset.sourceKey;
+            if (!seen.has(key)) {
+              seen.add(key);
+              orderedKeys.push(key);
+            }
+          });
+          localStorage.setItem(SLOT_STORAGE_KEY, JSON.stringify(orderedKeys));
+        } });    }
+
+    function renderDashboard() {
+      if (window.innerWidth <= MOBILE_BREAKPOINT) {
+        renderMobileSources();
+      } else {
+        renderDesktopSlots();
+      }
+    }
+
+    function handleViewportChange() {
+      if (mobileSortable && window.innerWidth > MOBILE_BREAKPOINT) {
+        mobileSortable.destroy();
+        mobileSortable = null;
+      }
+      renderDashboard();
+    }
+
+    function loadWeatherWithLocation() {
+      const el = document.getElementById("weather-bar");
+      if (!el) return;
+      if (!navigator.geolocation) {
+        el.setAttribute("hx-get", "/weather");
+        htmx.process(el);
+        return;
+      }
+      navigator.geolocation.getCurrentPosition(
+        pos => {
+          const lat = pos.coords.latitude;
+          const lon = pos.coords.longitude;
+          el.setAttribute("hx-get", `/weather?lat=${lat}&lon=${lon}`);
+          htmx.process(el);
+        },
+        () => {
+          el.setAttribute("hx-get", "/weather");
+          htmx.process(el);
+        }
+      );
+    }
+
+      renderDashboard();
+      window.addEventListener("resize", handleViewportChange);
+      if (!sessionStorage.getItem("geoFetched")) { loadWeatherWithLocation();
+        sessionStorage.setItem("geoFetched", "1");
+      } else {
+        const el = document.getElementById("weather-bar");
+        if (el) { el.setAttribute("hx-get", "/weather");
+          htmx.process(el);
+        }}
+
+    document.addEventListener("click", e => {
+      const backdrop = document.getElementById("layout-modal-backdrop");
+      if (!backdrop || backdrop.hidden) return;
+      if (e.target === backdrop) closeLayoutModal();
+    });
+
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", function () {
+        navigator.serviceWorker.register("/sw.js").catch(function (err) {
+          console.error("service worker registration failed", err);
+        });
+      });
+    }
+  </script>
+</body>
+</html>

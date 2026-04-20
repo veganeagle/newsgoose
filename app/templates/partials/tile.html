@@ -1,0 +1,88 @@
+<section
+  class="tile-shell"
+  id="tile-slot-{{ slot_index if slot_index is not none else source.source_key }}"
+  data-slot-index="{{ slot_index if slot_index is not none else '' }}"
+  data-source-key="{{ source.source_key }}"
+  hx-get="/tile/{{ source.source_key }}{% if slot_index is not none %}?slot_index={{ slot_index }}{% endif %}"
+  hx-trigger="every {{ refresh_seconds }}s"
+  hx-swap="outerHTML"
+>
+  {% set latest_article = articles[0] if articles else none %}
+
+  <article class="tile tile-{{ source.tile_type }}">
+    <button class="mobile-close-tab" type="button" onclick="closeMobileTile(event)">−</button>
+    <div class="tile-header" onclick="toggleMobileTile(event, this.closest('.tile-shell'))">
+      <img class="tile-icon" src="{{ source.icon_url }}" alt="" />
+      <div class="tile-header-left">
+        <div class="tile-title">{{ source.display_name }}</div>
+        {% if latest_article %}
+          <div class="tile-meta">
+            {{ to_local(latest_article.published_at).strftime("%I:%M %p") }}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+    <div class="tile-body">
+      {% if articles %}
+        {% for article in articles %}
+          {% set age_seconds = (now() - article.published_at).total_seconds() %}
+          <a
+            class="feed-item {% if age_seconds <= 7200 %}is-fresh{% else %}is-stale{% endif %}"
+            href="{{ article.url }}"
+            onclick="openArticle(event, '{{ article.url }}')"
+          >
+            {% if article.image_url %}
+              <img class="feed-thumb" src="{{ article.image_url }}" alt="" loading="lazy" />
+            {% else %}
+              <div class="feed-thumb feed-thumb-empty"></div>
+            {% endif %}
+
+            <div class="feed-copy">
+              <div class="feed-title">{{ article.title }}</div>
+              <div class="feed-time">
+                {{ to_local(article.published_at).strftime("%b %d, %I:%M %p") }}
+              </div>
+            </div>
+          </a>
+        {% endfor %}
+      {% else %}
+        <div class="empty-state">No items available.</div>
+      {% endif %}
+    </div>
+  </article>
+</section>
+
+<script>
+function openArticle(e, url) {
+  e.preventDefault();
+  window.open(
+    url,
+    "_blank",
+    "width=1000,height=800,menubar=no,toolbar=no,location=yes,status=no"
+  );
+}
+
+function toggleMobileTile(e, shell) {
+  if (window.innerWidth > 900) return;
+  if (e.target.closest(".mobile-close-tab")) return;
+
+  const dashboard = document.querySelector(".dashboard");
+  const alreadyOpen = shell.classList.contains("mobile-open");
+
+  document.querySelectorAll(".tile-shell.mobile-open").forEach(el => el.classList.remove("mobile-open"));
+  dashboard.classList.remove("mobile-has-open");
+
+  if (!alreadyOpen) {
+    shell.classList.add("mobile-open");
+    dashboard.classList.add("mobile-has-open");
+    shell.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+}
+
+function closeMobileTile(e) {
+  e.stopPropagation();
+  const shell = e.target.closest(".tile-shell");
+  shell.classList.remove("mobile-open");
+  document.querySelector(".dashboard").classList.remove("mobile-has-open");
+}
+</script>

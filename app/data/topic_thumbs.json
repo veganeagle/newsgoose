@@ -1,0 +1,386 @@
+[
+  {
+    "match_type": "category",
+    "pattern": "trump",
+    "thumbnail_url": "/static/topic_thumbs/donald_trump.png",
+    "priority": 10
+  },
+  {
+    "match_type": "category",
+    "pattern": "carney",
+    "thumbnail_url": "/static/topic_thumbs/mark_carney.png",
+    "priority": 10
+  },
+  {
+    "match_type": "category",
+    "pattern": "vance",
+    "thumbnail_url": "/static/topic_thumbs/jd_vance.png",
+    "priority": 10
+  },
+  {
+    "match_type": "category",
+    "pattern": "doug ford",
+    "thumbnail_url": "/static/topic_thumbs/doug_ford.png",
+    "priority": 10
+  },
+  {
+    "match_type": "category",
+    "pattern": "iran",
+    "thumbnail_url": "/static/topic_thumbs/middle_east.png",
+    "priority": 9
+  },
+  {
+    "match_type": "category",
+    "pattern": "israel",
+    "thumbnail_url": "/static/topic_thumbs/israel.png",
+    "priority": 9
+  },
+  {
+    "match_type": "category",
+    "pattern": "middle east",
+    "thumbnail_url": "/static/topic_thumbs/middle_east.png",
+    "priority": 9
+  },
+  {
+    "match_type": "category",
+    "pattern": "hungary",
+    "thumbnail_url": "/static/topic_thumbs/hungary.png",
+    "priority": 9
+  },
+  {
+    "match_type": "category",
+    "pattern": "comment",
+    "thumbnail_url": "/static/topic_thumbs/opinion.png",
+    "priority": 8
+  },
+  {
+    "match_type": "category",
+    "pattern": "canadian politics",
+    "thumbnail_url": "/static/topic_thumbs/politics.png",
+    "priority": 8
+  },
+  {
+    "match_type": "category",
+    "pattern": "ontario politics",
+    "thumbnail_url": "/static/topic_thumbs/doug_ford.png",
+    "priority": 8
+  },
+  {
+    "match_type": "category",
+    "pattern": "canadian parliament",
+    "thumbnail_url": "/static/topic_thumbs/politics.png",
+    "priority": 8
+  },
+  {
+    "match_type": "category",
+    "pattern": "poilievre",
+    "thumbnail_url": "/static/topic_thumbs/pierre_poilievre.png",
+    "priority": 8
+  },
+  {
+    "match_type": "category",
+    "pattern": "paul calandra",
+    "thumbnail_url": "/static/topic_thumbs/politics.png",
+    "priority": 8
+  },
+  {
+    "match_type": "category",
+    "pattern": "viktor orban",
+    "thumbnail_url": "/static/topic_thumbs/hungary.png",
+    "priority": 8
+  },
+  {
+    "match_type": "category",
+    "pattern": "business",
+    "thumbnail_url": "/static/topic_thumbs/business.png",
+    "priority": 2
+  },
+  {
+    "match_type": "category",
+    "pattern": "globenewswire",
+    "thumbnail_url": "/static/topic_thumbs/world.png",
+    "priority": 2
+  },
+  {
+    "match_type": "category",
+    "pattern": "world",
+    "thumbnail_url": "/static/topic_thumbs/world.png",
+    "priority": 5
+  },
+  {
+    "match_type": "category",
+    "pattern": "canada",
+    "thumbnail_url": "/static/topic_thumbs/canada.png",
+    "priority": 7
+  },
+  {
+    "match_type": "category",
+    "pattern": "editors",
+    "thumbnail_url": "/static/topic_thumbs/news.png",
+    "priority": 5
+  },
+  {
+    "match_type": "category",
+    "pattern": "discover",
+    "thumbnail_url": "/static/topic_thumbs/opinion.png",
+    "priority": 2
+  },
+  {
+    "match_type": "category",
+    "pattern": "subscriber",
+    "thumbnail_url": "/static/topic_thumbs/news.png",
+    "priority": 2
+  },
+  {
+    "match_type": "category",
+    "pattern": "news",
+    "thumbnail_url": "/static/topic_thumbs/news.png",
+    "priority": 2
+  },
+  {
+    "match_type": "category",
+    "pattern": "toronto",
+    "thumbnail_url": "/static/topic_thumbs/toronto.png",
+    "priority": 8
+  },
+  {
+    "match_type": "category",
+    "pattern": "gta",
+    "thumbnail_url": "/static/topic_thumbs/toronto.png",
+    "priority": 8
+  },
+  {
+    "match_type": "category",
+    "pattern": "home",
+    "thumbnail_url": "/static/topic_thumbs/home.png",
+    "priority": 3
+  },
+  {
+    "match_type": "category",
+    "pattern": "birthday",
+    "thumbnail_url": "/static/topic_thumbs/birthday.png",
+    "priority": 7
+  },
+  {
+    "match_type": "category",
+    "pattern": "business",
+    "thumbnail_url": "/static/topic_thumbs/business.png",
+    "priority": 3
+  },
+  {
+    "match_type": "category",
+    "pattern": "money",
+    "thumbnail_url": "/static/topic_thumbs/business.png",
+    "priority": 3
+  },
+  {
+    "match_type": "category",
+    "pattern": "trade policy",
+    "thumbnail_url": "/static/topic_thumbs/business.png",
+    "priority": 3
+  },
+  {
+    "match_type": "category",
+    "pattern": "oil prices",
+    "thumbnail_url": "/static/topic_thumbs/business.png",
+    "priority": 3
+  },
+  {
+    "match_type": "category",
+    "pattern": "gas prices",
+    "thumbnail_url": "/static/topic_thumbs/business.png",
+    "priority": 3
+  },
+  {
+    "match_type": "category",
+    "pattern": "jobs",
+    "thumbnail_url": "/static/topic_thumbs/business.png",
+    "priority": 3
+  },
+  {
+    "match_type": "category",
+    "pattern": "letters",
+    "thumbnail_url": "/static/topic_thumbs/opinion.png",
+    "priority": 3
+  },
+  {
+    "match_type": "category",
+    "pattern": "columnist",
+    "thumbnail_url": "/static/topic_thumbs/opinion.png",
+    "priority": 2
+  },
+  {
+    "match_type": "category",
+    "pattern": "comment",
+    "thumbnail_url": "/static/topic_thumbs/opinion.png",
+    "priority": 3
+  },
+  {
+    "match_type": "category",
+    "pattern": "op eds",
+    "thumbnail_url": "/static/topic_thumbs/opinion.png",
+    "priority": 3
+  },
+  {
+    "match_type": "category",
+    "pattern": "editorial cartoons",
+    "thumbnail_url": "/static/topic_thumbs/opinion.png",
+    "priority": 3
+  },
+  {
+    "match_type": "category",
+    "pattern": "analysis",
+    "thumbnail_url": "/static/topic_thumbs/opinion.png",
+    "priority": 5
+  },
+  {
+    "match_type": "category",
+    "pattern": "health",
+    "thumbnail_url": "/static/topic_thumbs/medicine.png",
+    "priority": 5
+  },
+  {
+    "match_type": "category",
+    "pattern": "medicine",
+    "thumbnail_url": "/static/topic_thumbs/medicine.png",
+    "priority": 5
+  },
+  {
+    "match_type": "category",
+    "pattern": "neuroscience",
+    "thumbnail_url": "/static/topic_thumbs/medicine.png",
+    "priority": 6
+  },
+  {
+    "match_type": "category",
+    "pattern": "stanley cup",
+    "thumbnail_url": "/static/topic_thumbs/stanley_cup.png",
+    "priority": 10
+  },
+  {
+    "match_type": "category",
+    "pattern": "nhl",
+    "thumbnail_url": "/static/topic_thumbs/nhl.png",
+    "priority": 8
+  },
+  {
+    "match_type": "category",
+    "pattern": "playoffs",
+    "thumbnail_url": "/static/topic_thumbs/sports.png",
+    "priority": 6
+  },
+  {
+    "match_type": "category",
+    "pattern": "hockey",
+    "thumbnail_url": "/static/topic_thumbs/hockey.png",
+    "priority": 7
+  },
+  {
+    "match_type": "category",
+    "pattern": "leafs",
+    "thumbnail_url": "/static/topic_thumbs/leafs.png",
+    "priority": 7
+  },
+  {
+    "match_type": "category",
+    "pattern": "canucks",
+    "thumbnail_url": "/static/topic_thumbs/hockey.png",
+    "priority": 7
+  },
+  {
+    "match_type": "category",
+    "pattern": "oilers",
+    "thumbnail_url": "/static/topic_thumbs/hockey.png",
+    "priority": 7
+  },
+  {
+    "match_type": "category",
+    "pattern": "ottawa senators",
+    "thumbnail_url": "/static/topic_thumbs/hockey.png",
+    "priority": 7
+  },
+  {
+    "match_type": "category",
+    "pattern": "canadiens",
+    "thumbnail_url": "/static/topic_thumbs/habs.png",
+    "priority": 7
+  },
+  {
+    "match_type": "category",
+    "pattern": "calgary flames",
+    "thumbnail_url": "/static/topic_thumbs/calgary_flames.png",
+    "priority": 8
+  },
+  {
+    "match_type": "category",
+    "pattern": "sports",
+    "thumbnail_url": "/static/topic_thumbs/sports.png",
+    "priority": 6
+  },
+  {
+    "match_type": "category",
+    "pattern": "basketball",
+    "thumbnail_url": "/static/topic_thumbs/sports.png",
+    "priority": 7
+  },
+  {
+    "match_type": "category",
+    "pattern": "baseball",
+    "thumbnail_url": "/static/topic_thumbs/mlb.png",
+    "priority": 7
+  },
+  {
+    "match_type": "category",
+    "pattern": "football",
+    "thumbnail_url": "/static/topic_thumbs/sports.png",
+    "priority": 7
+  },
+  {
+    "match_type": "category",
+    "pattern": "soccer",
+    "thumbnail_url": "/static/topic_thumbs/sports.png",
+    "priority": 7
+  },
+  {
+    "match_type": "category",
+    "pattern": "motorsports",
+    "thumbnail_url": "/static/topic_thumbs/sports.png",
+    "priority": 7
+  },
+  {
+    "match_type": "category",
+    "pattern": "mlb",
+    "thumbnail_url": "/static/topic_thumbs/mlb.png",
+    "priority": 7
+  },
+  {
+    "match_type": "category",
+    "pattern": "nba",
+    "thumbnail_url": "/static/topic_thumbs/nba.png",
+    "priority": 7
+  },
+  {
+    "match_type": "category",
+    "pattern": "pwhl",
+    "thumbnail_url": "/static/topic_thumbs/sports.png",
+    "priority": 7
+  },
+  {
+    "match_type": "category",
+    "pattern": "game coverage",
+    "thumbnail_url": "/static/topic_thumbs/sports.png",
+    "priority": 7
+  },
+  {
+    "match_type": "category",
+    "pattern": "preview",
+    "thumbnail_url": "/static/topic_thumbs/sports.png",
+    "priority": 5
+  },
+  {
+    "match_type": "category",
+    "pattern": "recap",
+    "thumbnail_url": "/static/topic_thumbs/sports.png",
+    "priority": 5
+  }
+]

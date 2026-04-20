@@ -1,0 +1,42 @@
+<section
+  class="weather-shell"
+  id="weather-bar"
+  hx-get="/weather"
+  hx-trigger="every 1800s"
+  hx-swap="outerHTML"
+>
+  <div class="weather-bar">
+    {% if weather %}
+      <div class="weather-main">
+        <div class="weather-location">{{ weather.label }}</div>
+        <div class="weather-current">{{ weather.temperature_c|round|int }}°C</div>
+        <div class="weather-feels">Feels like {{ weather.apparent_temperature_c|round|int }}°C</div>
+        <div class="weather-condition">{{ weather.condition }}</div>
+        <div class="weather-precip">
+          {% if weather.precipitation_probability is not none %}
+            {{ weather.precipitation_probability }}% precip
+          {% else %}
+            --
+          {% endif %}
+          {% if weather.precipitation_mm is not none %}
+            • {{ "%.1f"|format(weather.precipitation_mm) }} mm
+          {% endif %}
+        </div>
+      </div>
+
+      <div class="weather-summary">
+        <div class="weather-summary-label">Rest of day</div>
+        <div class="weather-summary-text">{{ weather.rest_of_day }}</div>
+      </div>
+
+      <div class="weather-meta">
+        Updated {{ to_local(weather.fetched_at).strftime("%I:%M %p") }}
+      </div>
+    {% else %}
+      <div class="weather-main">
+        <div class="weather-location">Weather</div>
+        <div class="weather-summary-text">No weather data available yet.</div>
+      </div>
+    {% endif %}
+  </div>
+</section>

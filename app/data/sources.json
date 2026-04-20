@@ -1,0 +1,173 @@
+[
+  {
+    "source_key": "cbc",
+    "display_name": "CBC News",
+    "feed_url": "https://www.cbc.ca/webfeed/rss/rss-topstories",
+    "tile_type": "news",
+    "icon_url": "https://www.cbc.ca/favicon.ico",
+    "is_enabled": true,
+    "sort_order": 1
+  },
+  {
+    "source_key": "global",
+    "display_name": "Global News",
+    "feed_url": "https://globalnews.ca/feed/",
+    "tile_type": "news",
+    "icon_url": "https://www.google.com/s2/favicons?sz=64&domain=globalnews.ca",
+    "is_enabled": true,
+    "sort_order": 2
+  },
+  {
+    "source_key": "national_post",
+    "display_name": "National Post",
+    "feed_url": "https://nationalpost.com/feed/",
+    "tile_type": "news",
+    "icon_url": "https://www.google.com/s2/favicons?sz=64&domain=nationalpost.com",
+    "is_enabled": true,
+    "sort_order": 3
+  },
+  {
+    "source_key": "citynews",
+    "display_name": "CityNews",
+    "feed_url": "https://toronto.citynews.ca/feed/",
+    "tile_type": "news",
+    "icon_url": "https://www.google.com/s2/favicons?sz=64&domain=citynews.ca",
+    "is_enabled": true,
+    "sort_order": 4
+  },
+  {
+    "source_key": "financial_post",
+    "display_name": "Financial Post",
+    "feed_url": "https://financialpost.com/feed/",
+    "tile_type": "news",
+    "icon_url": "https://www.google.com/s2/favicons?sz=64&domain=financialpost.com",
+    "is_enabled": true,
+    "sort_order": 5
+  },
+  {
+    "source_key": "sportsnet",
+    "display_name": "Sportsnet",
+    "feed_url": "https://www.sportsnet.ca/feed/",
+    "tile_type": "news",
+    "icon_url": "https://www.google.com/s2/favicons?sz=64&domain=sportsnet.ca",
+    "is_enabled": true,
+    "sort_order": 6
+  },
+  {
+    "source_key": "daily_hive",
+    "display_name": "Daily Hive",
+    "feed_url": "https://dailyhive.com/feed",
+    "tile_type": "news",
+    "icon_url": "https://www.google.com/s2/favicons?sz=64&domain=dailyhive.com",
+    "is_enabled": true,
+    "sort_order": 7
+  },
+  {
+    "source_key": "science_news",
+    "display_name": "Science News",
+    "feed_url": "https://www.sciencenews.org/feed",
+    "tile_type": "news",
+    "icon_url": "https://www.google.com/s2/favicons?sz=64&domain=sciencenews.org",
+    "is_enabled": true,
+    "sort_order": 8
+  },
+  {
+    "source_key": "vancouver_sun",
+    "display_name": "Vancouver Sun",
+    "feed_url": "https://vancouversun.com/feed/",
+    "tile_type": "news",
+    "icon_url": "https://www.google.com/s2/favicons?sz=64&domain=vancouversun.com",
+    "is_enabled": true,
+    "sort_order": 9
+  }, 
+  {
+    "source_key": "narcity",
+    "display_name": "Narcity Canada",
+    "feed_url": "https://www.narcity.com/feed",
+    "tile_type": "news",
+    "icon_url": "https://www.google.com/s2/favicons?sz=64&domain=narcity.com",
+    "is_enabled": true,
+    "sort_order": 10
+  },
+  {
+    "source_key": "the_province",
+    "display_name": "The Province",
+    "feed_url": "https://theprovince.com/feed/",
+    "tile_type": "news",
+    "icon_url": "https://www.google.com/s2/favicons?sz=64&domain=theprovince.com",
+    "is_enabled": true,
+    "sort_order":11
+  },
+  {
+    "source_key": "edmonton_journal",
+    "display_name": "Edmonton Journal",
+    "feed_url": "https://edmontonjournal.com/feed/",
+    "tile_type": "news",
+    "icon_url": "https://www.google.com/s2/favicons?sz=64&domain=edmontonjournal.com",
+    "is_enabled": true,
+    "sort_order": 12
+  },
+  {
+    "source_key": "edmonton_sun",
+    "display_name": "Edmonton Sun",
+    "feed_url": "https://edmontonsun.com/feed/",
+    "tile_type": "news",
+    "icon_url": "https://www.google.com/s2/favicons?sz=64&domain=edmontonsun.com",
+    "is_enabled": true,
+    "sort_order": 13
+  },
+  {
+    "source_key": "calgary_herald",
+    "display_name": "Calgary Herald",
+    "feed_url": "https://calgaryherald.com/feed/",
+    "tile_type": "news",
+    "icon_url": "https://www.google.com/s2/favicons?sz=64&domain=calgaryherald.com",
+    "is_enabled": true,
+    "sort_order": 14
+  },
+  {
+    "source_key": "calgary_sun",
+    "display_name": "Calgary Sun",
+    "feed_url": "https://calgarysun.com/feed/",
+    "tile_type": "news",
+    "icon_url": "https://www.google.com/s2/favicons?sz=64&domain=calgarysun.com",
+    "is_enabled": true,
+    "sort_order": 15
+  },
+  {
+    "source_key": "toronto_sun",
+    "display_name": "Toronto Sun",
+    "feed_url": "https://torontosun.com/feed/",
+    "tile_type": "news",
+    "icon_url": "https://www.google.com/s2/favicons?sz=64&domain=torontosun.com",
+    "is_enabled": true,
+    "sort_order": 16
+  },  
+  {
+      "source_key": "ottawa_citizen",
+      "display_name": "Ottawa Citizen",
+      "feed_url": "https://ottawacitizen.com/feed/",
+      "tile_type": "news",
+      "icon_url": "https://www.google.com/s2/favicons?sz=64&domain=ottawacitizen.com",
+      "is_enabled": true,
+      "sort_order": 17
+    },
+  {
+    "source_key": "montreal_gazette",
+    "display_name": "Montreal Gazette",
+    "feed_url": "https://montrealgazette.com/feed/",
+    "tile_type": "news",
+    "icon_url": "https://www.google.com/s2/favicons?sz=64&domain=montrealgazette.com",
+    "is_enabled": true,
+    "sort_order": 18
+  },
+  {
+    "source_key": "rebel_news",
+    "display_name": "Rebel News",
+    "feed_url": "https://www.rebelnews.com/rss",
+    "tile_type": "news",
+    "icon_url": "https://www.google.com/s2/favicons?sz=64&domain=rebelnews.com",
+    "is_enabled": true,
+    "sort_order": 19
+  }
+]
