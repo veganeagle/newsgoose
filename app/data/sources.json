@@ -6,7 +6,8 @@
     "tile_type": "news",
     "icon_url": "https://www.cbc.ca/favicon.ico",
     "is_enabled": true,
-    "sort_order": 1
+    "sort_order": 1,
+    "categories": ["National"]
   },
   {
     "source_key": "global",
@@ -15,7 +16,8 @@
     "tile_type": "news",
     "icon_url": "https://www.google.com/s2/favicons?sz=64&domain=globalnews.ca",
     "is_enabled": true,
-    "sort_order": 2
+    "sort_order": 2,
+    "categories": ["National"]
   },
   {
     "source_key": "national_post",
@@ -24,7 +26,8 @@
     "tile_type": "news",
     "icon_url": "https://www.google.com/s2/favicons?sz=64&domain=nationalpost.com",
     "is_enabled": true,
-    "sort_order": 3
+    "sort_order": 3,
+    "categories": ["National", "Business"]
   },
   {
     "source_key": "citynews",
@@ -33,7 +36,8 @@
     "tile_type": "news",
     "icon_url": "https://www.google.com/s2/favicons?sz=64&domain=citynews.ca",
     "is_enabled": true,
-    "sort_order": 4
+    "sort_order": 4,
+    "categories": ["Toronto","Ontario"]
   },
   {
     "source_key": "financial_post",
@@ -42,7 +46,8 @@
     "tile_type": "news",
     "icon_url": "https://www.google.com/s2/favicons?sz=64&domain=financialpost.com",
     "is_enabled": true,
-    "sort_order": 5
+    "sort_order": 5,
+    "categories": ["Business", "National"]
   },
   {
     "source_key": "sportsnet",
@@ -51,7 +56,8 @@
     "tile_type": "news",
     "icon_url": "https://www.google.com/s2/favicons?sz=64&domain=sportsnet.ca",
     "is_enabled": true,
-    "sort_order": 6
+    "sort_order": 6,
+    "categories": ["Sports"]
   },
   {
     "source_key": "daily_hive",
@@ -60,7 +66,8 @@
     "tile_type": "news",
     "icon_url": "https://www.google.com/s2/favicons?sz=64&domain=dailyhive.com",
     "is_enabled": true,
-    "sort_order": 7
+    "sort_order": 7,
+    "categories": ["Lifestyle"]
   },
   {
     "source_key": "science_news",
@@ -69,7 +76,8 @@
     "tile_type": "news",
     "icon_url": "https://www.google.com/s2/favicons?sz=64&domain=sciencenews.org",
     "is_enabled": true,
-    "sort_order": 8
+    "sort_order": 8,
+    "categories": ["Science"]
   },
   {
     "source_key": "vancouver_sun",
@@ -78,8 +86,9 @@
     "tile_type": "news",
     "icon_url": "https://www.google.com/s2/favicons?sz=64&domain=vancouversun.com",
     "is_enabled": true,
-    "sort_order": 9
-  }, 
+    "sort_order": 9,
+    "categories": ["West"]
+  },
   {
     "source_key": "narcity",
     "display_name": "Narcity Canada",
@@ -87,7 +96,8 @@
     "tile_type": "news",
     "icon_url": "https://www.google.com/s2/favicons?sz=64&domain=narcity.com",
     "is_enabled": true,
-    "sort_order": 10
+    "sort_order": 10,
+    "categories": ["Lifestyle","West"]
   },
   {
     "source_key": "the_province",
@@ -96,7 +106,8 @@
     "tile_type": "news",
     "icon_url": "https://www.google.com/s2/favicons?sz=64&domain=theprovince.com",
     "is_enabled": true,
-    "sort_order":11
+    "sort_order": 11,
+    "categories": ["West"]
   },
   {
     "source_key": "edmonton_journal",
@@ -105,7 +116,8 @@
     "tile_type": "news",
     "icon_url": "https://www.google.com/s2/favicons?sz=64&domain=edmontonjournal.com",
     "is_enabled": true,
-    "sort_order": 12
+    "sort_order": 12,
+    "categories": ["West"]
   },
   {
     "source_key": "edmonton_sun",
@@ -114,7 +126,8 @@
     "tile_type": "news",
     "icon_url": "https://www.google.com/s2/favicons?sz=64&domain=edmontonsun.com",
     "is_enabled": true,
-    "sort_order": 13
+    "sort_order": 13,
+    "categories": ["West"]
   },
   {
     "source_key": "calgary_herald",
@@ -123,7 +136,8 @@
     "tile_type": "news",
     "icon_url": "https://www.google.com/s2/favicons?sz=64&domain=calgaryherald.com",
     "is_enabled": true,
-    "sort_order": 14
+    "sort_order": 14,
+    "categories": ["West"]
   },
   {
     "source_key": "calgary_sun",
@@ -132,7 +146,8 @@
     "tile_type": "news",
     "icon_url": "https://www.google.com/s2/favicons?sz=64&domain=calgarysun.com",
     "is_enabled": true,
-    "sort_order": 15
+    "sort_order": 15,
+    "categories": ["West"]
   },
   {
     "source_key": "toronto_sun",
@@ -141,17 +156,19 @@
     "tile_type": "news",
     "icon_url": "https://www.google.com/s2/favicons?sz=64&domain=torontosun.com",
     "is_enabled": true,
-    "sort_order": 16
-  },  
+    "sort_order": 16,
+    "categories": ["Toronto", "Ontario"]
+  },
   {
-      "source_key": "ottawa_citizen",
-      "display_name": "Ottawa Citizen",
-      "feed_url": "https://ottawacitizen.com/feed/",
-      "tile_type": "news",
-      "icon_url": "https://www.google.com/s2/favicons?sz=64&domain=ottawacitizen.com",
-      "is_enabled": true,
-      "sort_order": 17
-    },
+    "source_key": "ottawa_citizen",
+    "display_name": "Ottawa Citizen",
+    "feed_url": "https://ottawacitizen.com/feed/",
+    "tile_type": "news",
+    "icon_url": "https://www.google.com/s2/favicons?sz=64&domain=ottawacitizen.com",
+    "is_enabled": true,
+    "sort_order": 17,
+    "categories": ["Ontario"]
+  },
   {
     "source_key": "montreal_gazette",
     "display_name": "Montreal Gazette",
@@ -159,15 +176,47 @@
     "tile_type": "news",
     "icon_url": "https://www.google.com/s2/favicons?sz=64&domain=montrealgazette.com",
     "is_enabled": true,
-    "sort_order": 18
+    "sort_order": 18,
+    "categories": ["Quebec"]
   },
   {
-    "source_key": "rebel_news",
-    "display_name": "Rebel News",
-    "feed_url": "https://www.rebelnews.com/rss",
+    "source_key": "le_droit",
+    "display_name": "Le Droit",
+    "feed_url": "https://www.ledroit.com/feed/",
     "tile_type": "news",
-    "icon_url": "https://www.google.com/s2/favicons?sz=64&domain=rebelnews.com",
+    "icon_url": "https://www.google.com/s2/favicons?sz=64&domain=ledroit.com",
     "is_enabled": true,
-    "sort_order": 19
+    "sort_order": 19,
+    "categories": ["Quebec", "French", "Ontario"]
+  },
+  {
+    "source_key": "la_presse",
+    "display_name": "La Presse",
+    "feed_url": "https://www.lapresse.ca/actualites/rss",
+    "tile_type": "news",
+    "icon_url": "https://www.google.com/s2/favicons?sz=64&domain=lapresse.ca",
+    "is_enabled": true,
+    "sort_order": 20,
+    "categories": ["Quebec", "French"]
+  },
+  {
+    "source_key": "radio_canada",
+    "display_name": "Radio-Canada",
+    "feed_url": "https://ici.radio-canada.ca/rss/4159",
+    "tile_type": "news",
+    "icon_url": "https://www.google.com/s2/favicons?sz=64&domain=radio-canada.ca",
+    "is_enabled": true,
+    "sort_order": 21,
+    "categories": ["Quebec", "French", "National"]
+  },
+  {
+    "source_key": "tva_nouvelles",
+    "display_name": "TVA Nouvelles",
+    "feed_url": "https://www.tvanouvelles.ca/rss.xml",
+    "tile_type": "news",
+    "icon_url": "https://www.google.com/s2/favicons?sz=64&domain=tvanouvelles.ca",
+    "is_enabled": true,
+    "sort_order": 22,
+    "categories": ["Quebec", "French"]
   }
 ]

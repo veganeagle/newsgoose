@@ -4,6 +4,7 @@
   "start_url": "/dashboard",
   "scope": "/",
   "display": "standalone",
+  "orientation": "portrait",
   "background_color": "#0b1220",
   "theme_color": "#0b1220",
   "description": "Live Canadian news headlines.  No ads.",

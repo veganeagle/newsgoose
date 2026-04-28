@@ -17,13 +17,17 @@
 
 </head>
 <body>
-  <header class="app-header">
+  <header class="app-header" onclick="goToMySources()">
   <div class="app-brand">
     <img class="app-logo" src="/static/icon.png" alt="NewsGoose" />
     <div class="app-title">NewsGoose</div>
   </div>
 
+  <div class="app-header-center">
+    <div class="header-view-label" id="header-view-label">My Sources</div>
+  </div>
   <div class="app-header-actions">
+    <button type="button" class="header-menu-btn" onclick="toggleMobileMenu()">☰</button>
     <button type="button" class="header-layout-btn" onclick="openLayoutModal()">Layout</button>
   </div>
 </header>
@@ -58,21 +62,29 @@
         </div>
       </div>
     </div>
+    <div class="mobile-menu" id="mobile-menu" hidden>
+      <div class="mobile-menu-content">
+        <div id="mobile-menu-categories"></div>
+      </div>
+    </div>
   </main>
 
   <script>
     const ALL_SOURCES = {{ sources_json|tojson }};
-    const SLOT_STORAGE_KEY = "news.slotAssignments.v1";
+    const ALL_CATEGORIES = Array.from(new Set(ALL_SOURCES.flatMap(s => s.categories || [])));
     const DESKTOP_SLOT_COUNT = 4;
     const MOBILE_BREAKPOINT = 900;
+    const MY_SOURCES_KEY = "news.mySources.v1";
+    const SLOT_STORAGE_KEY = MY_SOURCES_KEY;
+    let currentView = "My Sources";
     let modalAssignments = [];
     let draggedSourceKey = null;
     let mobileSortable = null;
 
-    function defaultSlotAssignments() { return ALL_SOURCES.map(source => source.source_key);}
+    function defaultSlotAssignments() {return ALL_SOURCES.slice(0, 6).map(source => source.source_key);}
     function loadSlotAssignments() {
-      const defaults = defaultSlotAssignments();
-      const validKeys = new Set(defaults);
+    const defaults = defaultSlotAssignments();
+    const validKeys = new Set(ALL_SOURCES.map(s => s.source_key));
       try {  const raw = localStorage.getItem(SLOT_STORAGE_KEY);
         if (!raw) {
           localStorage.setItem(SLOT_STORAGE_KEY, JSON.stringify(defaults));
@@ -89,9 +101,6 @@
             seen.add(key);
             cleaned.push(key);}
         });
-
-        for (const key of defaults) { if (!cleaned.includes(key)) cleaned.push(key);}
-        localStorage.setItem(SLOT_STORAGE_KEY, JSON.stringify(cleaned));
         return cleaned;
       } catch {
         localStorage.setItem(SLOT_STORAGE_KEY, JSON.stringify(defaults));
@@ -112,6 +121,11 @@
           <div class="layout-mini-name">${source.display_name}</div>
         </div>
       `;
+    }
+
+    function setHeaderLabel(label) {
+      const el = document.getElementById("header-view-label");
+      if (el) el.textContent = label;
     }
 
     function renderLayoutSourceList() {
@@ -136,6 +150,47 @@
           draggedSourceKey = null;
         });
       });
+    }
+
+    function isMySource(sourceKey) {
+      return loadSlotAssignments().includes(sourceKey);
+    }
+
+    function refreshTileActions() {
+      document.querySelectorAll(".tile-action-btn").forEach(btn => {
+        const shell = btn.closest(".tile-shell");
+        const sourceKey = shell.dataset.sourceKey;
+        const inMySources = isMySource(sourceKey);
+        btn.classList.remove("add", "remove");
+        if (currentView === "My Sources") {
+          btn.textContent = " - ";
+          btn.classList.add("remove");
+        } else if (inMySources) {
+          btn.textContent = " ✓ ";
+          btn.disabled = true;
+        } else {
+          btn.textContent = " + ";
+          btn.disabled = false;
+          btn.classList.add("add");
+        }
+      });
+    }
+
+    function handleTileAction(e, sourceKey) {
+      e.stopPropagation();
+      const current = loadSlotAssignments();
+    if (currentView === "My Sources" && current.length <= 1) return;
+      if (currentView === "My Sources") {
+        localStorage.setItem( SLOT_STORAGE_KEY, JSON.stringify(current.filter(key => key !== sourceKey))
+        );
+      } else if (!current.includes(sourceKey)) {
+        localStorage.setItem(
+          SLOT_STORAGE_KEY,
+          JSON.stringify([...current, sourceKey])
+        );
+      }
+      refreshTileActions(); 
+      renderDashboard();
     }
 
     function renderLayoutSlotGrid() {
@@ -225,7 +280,10 @@
 
     function renderMobileSources() {
       const dashboard = document.getElementById("dashboard");
-      const assigned = loadSlotAssignments();
+      const assigned =
+        currentView === "My Sources" ? loadSlotAssignments() : ALL_SOURCES
+              .filter(s => (s.categories || []).includes(currentView))
+              .map(s => s.source_key);
 
       dashboard.innerHTML = assigned.map(sourceKey => {
         const source = getSourceByKey(sourceKey);
@@ -244,7 +302,22 @@
         `;
       }).join("");
       htmx.process(dashboard);
+      document.body.addEventListener("htmx:afterSwap", refreshTileActions);
       initMobileSorting();
+    }
+
+    function renderMobileMenu() {
+      const container = document.getElementById("mobile-menu-categories");
+      const items = [
+        `<div class="mobile-menu-item ${currentView === "My Sources" ? "active" : ""}" data-view="My Sources">My Sources</div>`,
+        `<div class="mobile-menu-divider"></div>`,
+        ...ALL_CATEGORIES.map(cat => `
+          <div class="mobile-menu-item ${currentView === cat ? "active" : ""}" data-view="${cat}">
+            ${cat}
+          </div>
+        `)
+      ];
+      container.innerHTML = items.join("");
     }
 
 
@@ -256,7 +329,7 @@
         mobileSortable.destroy();
         mobileSortable = null;}
       mobileSortable = new Sortable(dashboard, {
-        disabled: !!document.querySelector(".tile-shell.mobile-open"),
+        disabled: currentView !== "My Sources" || !!document.querySelector(".tile-shell.mobile-open"),
         animation: 150,
         delay: 250,
         delayOnTouchOnly: true,
@@ -266,7 +339,7 @@
         filter: ".mobile-open .tile-header",
         fallbackTolerance: 5,
         onMove: () => {return !document.querySelector(".tile-shell.mobile-open");},
-        onEnd: () => {
+        onEnd: () => {if (currentView !== "My Sources") return;
           const seen = new Set();
           const orderedKeys = [];
           dashboard.querySelectorAll(".tile-shell").forEach(el => {
@@ -280,6 +353,7 @@
         } });    }
 
     function renderDashboard() {
+      setHeaderLabel(currentView);
       if (window.innerWidth <= MOBILE_BREAKPOINT) {
         renderMobileSources();
       } else {
@@ -287,12 +361,23 @@
       }
     }
 
+    let resizeTimer = null;
+    let lastMobileState = window.innerWidth <= MOBILE_BREAKPOINT;
+
     function handleViewportChange() {
-      if (mobileSortable && window.innerWidth > MOBILE_BREAKPOINT) {
-        mobileSortable.destroy();
-        mobileSortable = null;
-      }
-      renderDashboard();
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => {
+        const isMobile = window.innerWidth <= MOBILE_BREAKPOINT;
+        if (isMobile === lastMobileState) return;
+        lastMobileState = isMobile;
+
+        if (mobileSortable && !isMobile) {
+          mobileSortable.destroy();
+          mobileSortable = null;
+        }
+
+        renderDashboard();
+      }, 250);
     }
 
     function loadWeatherWithLocation() {
@@ -340,6 +425,34 @@
         });
       });
     }
+  
+    function toggleMobileMenu() {
+      const menu = document.getElementById("mobile-menu");
+      renderMobileMenu();
+      menu.hidden = !menu.hidden;
+    }   
+    document.getElementById("mobile-menu").addEventListener("click", e => {
+      if (e.target.id === "mobile-menu") {
+        e.currentTarget.hidden = true;
+      }
+    });
+    document.getElementById("mobile-menu").addEventListener("click", e => {
+      const item = e.target.closest(".mobile-menu-item");
+      if (!item) return;
+      const view = item.dataset.view;
+      currentView = view;
+      setHeaderLabel(view);
+      // TODO: render based on view (next step)
+      renderDashboard();
+      e.currentTarget.hidden = true;
+    });
+
+    function goToMySources() {
+      if (currentView === "My Sources") return;
+      currentView = "My Sources";
+      renderDashboard();
+    }
+
   </script>
 </body>
 </html>

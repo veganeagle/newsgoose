@@ -24,3 +24,4 @@ class Source:
     icon_url: Optional[str] = None
     is_enabled: bool = True
     sort_order: int = 0
+    categories: list[str] | None = None

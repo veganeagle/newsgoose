@@ -19,6 +19,7 @@ async def dashboard(request: Request):
             "source_key": s.source_key,
             "display_name": s.display_name,
             "icon_url": s.icon_url,
+            "categories": s.categories or [],
         }
         for s in sources
     ]
