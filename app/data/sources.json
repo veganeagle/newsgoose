@@ -218,5 +218,47 @@
     "is_enabled": true,
     "sort_order": 22,
     "categories": ["Quebec", "French"]
-  }
+  },
+  {
+    "source_key": "sportsnet_nhl",
+    "display_name": "Sportsnet NHL",
+    "feed_url": "https://www.sportsnet.ca/hockey/nhl/feed/",
+    "tile_type": "news",
+    "icon_url": "https://www.google.com/s2/favicons?sz=64&domain=sportsnet.ca",
+    "is_enabled": true,
+    "sort_order": 23,
+    "categories": ["Sports"]
+  },
+  {
+    "source_key": "cbc_atlantic",
+    "display_name": "CBC Atlantic",
+    "feed_url": "https://www.cbc.ca/cmlink/rss-canada-novascotia",
+    "tile_type": "news",
+    "icon_url": "https://www.google.com/s2/favicons?sz=64&domain=cbc.ca",
+    "is_enabled": true,
+    "sort_order": 24,
+    "categories": ["Atlantic"]
+  },
+    {
+    "source_key": "cbc_science",
+    "display_name": "CBC Science",
+    "feed_url": "https://www.cbc.ca/cmlink/rss-technology",
+    "tile_type": "news",
+    "icon_url": "https://www.google.com/s2/favicons?sz=64&domain=cbc.ca",
+    "is_enabled": true,
+    "sort_order": 25,
+    "categories": ["Science", "National"]
+  },
+
+{
+  "source_key": "canadian_living",
+  "display_name": "Canadian Living",
+  "feed_url": "https://www.canadianliving.com/rss",
+  "tile_type": "news",
+  "icon_url": "https://www.google.com/s2/favicons?sz=64&domain=canadianliving.com",
+  "is_enabled": true,
+  "sort_order": 26,
+  "categories": ["Lifestyle"]
+}
+
 ]

@@ -230,7 +230,7 @@ body {
 }
 
 .feed-item.is-stale {
-  opacity: 0.62;
+  opacity: 0.85;
 }
 
 .feed-item.is-stale .feed-title {
@@ -517,13 +517,13 @@ body {
   }
 
   .app-title {
-    font-size: 24px;
+    font-size: 22px;
   }
 
   .header-view-label {
     display: block;
     color: #93c5fd;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 700;
     pointer-events: auto;
   }
