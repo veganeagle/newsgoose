@@ -10,7 +10,6 @@
   {% set latest_article = articles[0] if articles else none %}
 
   <article class="tile tile-{{ source.tile_type }}">
-    <button class="mobile-close-tab" type="button" onclick="closeMobileTile(event)">−</button>
     <div class="tile-header" onclick="toggleMobileTile(event, this.closest('.tile-shell'))">
       <img class="tile-icon" src="{{ source.icon_url }}" alt="" />
       <div class="tile-header-left">
@@ -21,9 +20,8 @@
           </div>
         {% endif %}
       </div>
-      <button class="tile-action-btn" type="button"
-        onclick="handleTileAction(event, '{{ source.source_key }}')"
-      ></button>
+      <button class="tile-action-btn" type="button" onclick="handleTileAction(event, '{{ source.source_key }}')" title="Remove from My Sources"></button>
+    <button class="mobile-close-tab" type="button" onclick="closeMobileTile(event)">x</button>
     </div>
     <div class="tile-body">
       {% if articles %}

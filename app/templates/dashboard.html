@@ -456,7 +456,14 @@
     });
 
     function goToMySources() {
-      if (currentView === "My Sources") return;
+      if (currentView === "My Sources") {
+        document.querySelectorAll(".tile-shell.mobile-open")
+          .forEach(el => el.classList.remove("mobile-open"));
+        document.getElementById("dashboard")
+          ?.classList.remove("mobile-has-open");
+        return;
+      }
+
       currentView = "My Sources";
       renderDashboard();
     }
