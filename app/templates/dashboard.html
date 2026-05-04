@@ -302,7 +302,6 @@
         `;
       }).join("");
       htmx.process(dashboard);
-      document.body.addEventListener("htmx:afterSwap", refreshTileActions);
       initMobileSorting();
     }
 
@@ -354,6 +353,8 @@
 
     function renderDashboard() {
       setHeaderLabel(currentView);
+      const dashboard = document.getElementById("dashboard");
+      if (dashboard) dashboard.classList.remove("mobile-has-open");
       if (window.innerWidth <= MOBILE_BREAKPOINT) {
         renderMobileSources();
       } else {
@@ -404,6 +405,13 @@
 
       renderDashboard();
       window.addEventListener("resize", handleViewportChange);
+      document.body.addEventListener("htmx:afterSwap", () => {
+        const db = document.getElementById("dashboard");
+        if (db && db.classList.contains("mobile-has-open") && !db.querySelector(".tile-shell.mobile-open")) {
+          db.classList.remove("mobile-has-open");
+        }
+        refreshTileActions();
+      });
       if (!sessionStorage.getItem("geoFetched")) { loadWeatherWithLocation();
         sessionStorage.setItem("geoFetched", "1");
       } else {
