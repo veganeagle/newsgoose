@@ -559,9 +559,9 @@ body {
     border-left: none;
     border-bottom: 1px solid #334155;
     display: grid;
-    grid-template-columns: 32px 1fr auto auto;
+    grid-template-columns: 32px 1fr auto;
     align-items: center;
-    gap: 13px;
+    gap: 10px;
     cursor: pointer;
     width: auto;
   }
@@ -628,23 +628,20 @@ body {
   }
 
   .tile-shell.mobile-open .mobile-close-tab {
-    display: flex;
-    width: 28px;
+    display: block;
+    width: 44px;
     height: 28px;
-    margin: 0;
+    margin: 8px auto 0;
     border: 1px solid #475569;
-    border-radius: 50%;
-    font-size: 16px;
+    border-bottom: none;
+    border-radius: 10px 10px 0 0;
+    background: #243041;
+    color: #f8fafc;
+    font-size: 20px;
     line-height: 1;
-    align-items: center;
-    justify-content: center;
     cursor: pointer;
-    background: #7f1d1d;
-    border-color: #991b1b;
-    color: #fee2e2;
   }
 
-  
   .tile-action-btn {
     margin-left: auto;
     padding: 6px 10px;
@@ -672,14 +669,13 @@ body {
   }
 
   .tile-action-btn.remove {
-    background: #ced12d;
-    border-color: #b8a008;
-    color: #000;
-    font-size: 22px;
+    background: #7f1d1d;
+    border-color: #991b1b;
+    color: #fee2e2;
   }
 
   .tile-action-btn.remove:hover {
-    background: #7889a0;
+    background: #991b1b;
   }
 
   .feed-item {
