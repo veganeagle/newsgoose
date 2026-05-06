@@ -3,7 +3,7 @@ import logging
 from contextlib import asynccontextmanager
 from datetime import datetime, timezone
 from fastapi import FastAPI, Request
-from fastapi.responses import FileResponse, RedirectResponse
+from fastapi.responses import FileResponse, RedirectResponse, HTMLResponseq
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 
@@ -64,3 +64,14 @@ async def service_worker():
         media_type="application/javascript",
         headers={"Cache-Control": "no-cache"},
     )
+
+
+@app.get("/privacy")
+async def privacy():
+    return HTMLResponse("""
+    <html><body>
+    <h2>Privacy Policy</h2>
+    <p>NewsGoose does not collect or store personal data.</p>
+    <p>Location may be used temporarily to display local weather and is not stored.</p>
+    </body></html>
+    """)
