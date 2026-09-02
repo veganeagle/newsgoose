@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300">
-  <rect width="400" height="300" rx="18" fill="#f7dbe9"/>
-  <text x="200" y="70" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-weight="bold"
-        font-size="46" fill="#6b1a45" text-anchor="middle">Fashion</text>
-  <circle cx="200" cy="103" r="11" fill="#6b1a45"/>
-  <path d="M185 118 L215 118 L225 148 L248 250 L152 250 L175 148 Z" fill="#6b1a45"/>
-</svg>

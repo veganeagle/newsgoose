@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300">
-  <rect width="400" height="300" rx="18" fill="#f5edd3"/>
-  <text x="200" y="70" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-weight="bold"
-        font-size="46" fill="#6b5a1a" text-anchor="middle">Prairies</text>
-  <rect x="175" y="130" width="50" height="110" rx="20" fill="#6b5a1a"/>
-  <rect x="160" y="225" width="80" height="18" rx="4" fill="#6b5a1a"/>
-  <line x1="140" y1="245" x2="160" y2="205" stroke="#6b5a1a" stroke-width="8" stroke-linecap="round"/>
-  <line x1="150" y1="245" x2="175" y2="200" stroke="#6b5a1a" stroke-width="6" stroke-linecap="round"/>
-</svg>

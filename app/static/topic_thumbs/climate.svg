@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300">
-  <rect width="400" height="300" rx="18" fill="#d9f0e6"/>
-  <text x="200" y="70" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-weight="bold"
-        font-size="46" fill="#1a4a3a" text-anchor="middle">Climate</text>
-  <path d="M200 120 C260 130 270 200 210 245 C170 200 150 140 200 120 Z" fill="#1a4a3a"/>
-  <path d="M205 135 C200 175 200 210 195 240" fill="none" stroke="#d9f0e6" stroke-width="6"/>
-</svg>

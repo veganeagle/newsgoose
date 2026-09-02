@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300">
-  <rect width="400" height="300" rx="18" fill="#f7e8d3"/>
-  <text x="200" y="70" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-weight="bold"
-        font-size="46" fill="#6b3a1a" text-anchor="middle">Food</text>
-  <circle cx="200" cy="185" r="55" fill="none" stroke="#6b3a1a" stroke-width="9"/>
-  <circle cx="200" cy="185" r="30" fill="none" stroke="#6b3a1a" stroke-width="4"/>
-  <line x1="140" y1="130" x2="140" y2="250" stroke="#6b3a1a" stroke-width="8" stroke-linecap="round"/>
-  <line x1="260" y1="130" x2="255" y2="250" stroke="#6b3a1a" stroke-width="8" stroke-linecap="round"/>
-</svg>

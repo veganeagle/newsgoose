@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300">
-  <rect width="400" height="300" rx="18" fill="#d3e3f5"/>
-  <text x="200" y="70" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-weight="bold"
-        font-size="46" fill="#1a3a6b" text-anchor="middle">Immigration</text>
-  <rect x="155" y="110" width="90" height="120" rx="8" fill="none" stroke="#1a3a6b" stroke-width="10"/>
-  <circle cx="200" cy="155" r="16" fill="none" stroke="#1a3a6b" stroke-width="7"/>
-  <line x1="175" y1="195" x2="225" y2="195" stroke="#1a3a6b" stroke-width="7" stroke-linecap="round"/>
-  <line x1="175" y1="210" x2="225" y2="210" stroke="#1a3a6b" stroke-width="7" stroke-linecap="round"/>
-</svg>

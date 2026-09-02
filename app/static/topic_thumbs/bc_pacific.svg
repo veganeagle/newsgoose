@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300">
-  <rect width="400" height="300" rx="18" fill="#d9e8f0"/>
-  <text x="200" y="70" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-weight="bold"
-        font-size="46" fill="#1a3a4a" text-anchor="middle">BC</text>
-  <polygon points="140,235 200,130 235,190 260,155 285,235" fill="#1a3a4a"/>
-  <polygon points="195,150 200,130 210,150 200,165" fill="#d9e8f0"/>
-</svg>

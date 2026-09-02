@@ -272,3 +272,4 @@ These are deliberate trade-offs for a single-user personal tool, not oversights:
 - [htmx](https://htmx.org/) for partial page updates without a JS framework
 - [SortableJS](https://sortablejs.github.io/Sortable/) for mobile drag-to-reorder
 - [FastAPI](https://fastapi.tiangolo.com/) + [feedparser](https://feedparser.readthedocs.io/) + [httpx](https://www.python-httpx.org/)
+- Several topic thumbnail photos are sourced from [Wikimedia Commons](https://commons.wikimedia.org/) under CC0/Public Domain or CC BY — see [`app/static/topic_thumbs/CREDITS.md`](app/static/topic_thumbs/CREDITS.md) for the ones requiring attribution

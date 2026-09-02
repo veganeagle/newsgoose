@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300">
-  <rect width="400" height="300" rx="18" fill="#f5e6d3"/>
-  <text x="200" y="70" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-weight="bold"
-        font-size="46" fill="#6b4423" text-anchor="middle">Housing</text>
-  <polygon points="200,110 260,155 240,155 240,240 160,240 160,155 140,155" fill="#6b4423"/>
-  <rect x="185" y="205" width="30" height="35" fill="#f5e6d3" stroke="#6b4423" stroke-width="4"/>
-</svg>
