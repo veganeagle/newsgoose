@@ -1,0 +1,14 @@
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "ca.newsgoose.app",
+      "sha256_cert_fingerprints": [
+        "FA:B9:68:72:EE:8C:5E:35:D8:D6:D6:12:BC:AC:C4:C3:0F:DA:C5:91:5D:07:F5:CD:F5:E2:93:53:4D:73:6A:72"
+      ]
+    }
+  }
+]

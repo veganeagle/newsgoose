@@ -10,7 +10,7 @@
   {% set latest_article = articles[0] if articles else none %}
 
   <article class="tile tile-{{ source.tile_type }}">
-    <button class="mobile-close-tab" type="button" onclick="closeMobileTile(event)">−</button>
+    <button class="mobile-close-tab" type="button" onclick="closeMobileTile(event)">✕ Close</button>
     <div class="tile-header" onclick="toggleMobileTile(event, this.closest('.tile-shell'))">
       <img class="tile-icon" src="{{ source.icon_url }}" alt="" />
       <div class="tile-header-left">
@@ -87,6 +87,12 @@ function closeMobileTile(e) {
   const shell = e.target.closest(".tile-shell");
   shell.classList.remove("mobile-open");
   document.querySelector(".dashboard").classList.remove("mobile-has-open");
-  window.scrollTo({ top: 0, behavior: "auto" });
+  const resetScroll = () => {
+    window.scrollTo(0, 0);
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+  };
+  resetScroll();
+  requestAnimationFrame(resetScroll);
 }
 </script>

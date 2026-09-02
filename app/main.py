@@ -3,7 +3,8 @@ import logging
 from contextlib import asynccontextmanager
 from datetime import datetime, timezone
 from fastapi import FastAPI, Request
-from fastapi.responses import FileResponse, RedirectResponse, HTMLResponseq
+from fastapi.responses import FileResponse, RedirectResponse, HTMLResponse
+
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 
@@ -63,6 +64,15 @@ async def service_worker():
         str(STATIC_DIR / "sw.js"),
         media_type="application/javascript",
         headers={"Cache-Control": "no-cache"},
+    )
+
+
+
+@app.get("/.well-known/assetlinks.json", include_in_schema=False)
+def assetlinks():
+    return FileResponse(
+        "app/static/.well-known/assetlinks.json",
+        media_type="application/json",
     )
 
 

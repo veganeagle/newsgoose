@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/static/site.css?v=6" />
+  <link rel="stylesheet" href="/static/site.css?v=9" />
   <link rel="manifest" href="/static/manifest.json" />
   <meta name="theme-color" content="#0f172a" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -412,13 +412,15 @@
         }
         refreshTileActions();
       });
-      if (!sessionStorage.getItem("geoFetched")) { loadWeatherWithLocation();
-        sessionStorage.setItem("geoFetched", "1");
-      } else {
-        const el = document.getElementById("weather-bar");
-        if (el) { el.setAttribute("hx-get", "/weather");
-          htmx.process(el);
-        }}
+      if (window.innerWidth > MOBILE_BREAKPOINT) {
+        if (!sessionStorage.getItem("geoFetched")) { loadWeatherWithLocation();
+          sessionStorage.setItem("geoFetched", "1");
+        } else {
+          const el = document.getElementById("weather-bar");
+          if (el) { el.setAttribute("hx-get", "/weather");
+            htmx.process(el);
+          }}
+      }
 
     document.addEventListener("click", e => {
       const backdrop = document.getElementById("layout-modal-backdrop");
