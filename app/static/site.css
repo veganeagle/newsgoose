@@ -485,10 +485,15 @@ body {
 @media (max-width: 900px) {
   html,
   body {
-    overflow: auto;
-    height: auto;
+    height: 100vh;
+    height: 100dvh;
+    overflow: hidden;
     font-size: 14px;
-    overflow-anchor: none;
+  }
+
+  body {
+    display: flex;
+    flex-direction: column;
   }
 
   .header-menu-btn {
@@ -508,10 +513,8 @@ body {
   }
 
   .app-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
+    position: static;
+    flex: 0 0 auto;
     height: 52px;
     padding: 0 12px;
   }
@@ -535,9 +538,10 @@ body {
 
   .dashboard-page {
     display: block;
-    height: auto;
-    min-height: 100vh;
-    padding-top: 52px;
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
     box-sizing: border-box;
   }
 
@@ -552,7 +556,7 @@ body {
     display: block;
     height: auto;
     border-radius: 12px;
-    overflow: hidden;
+    overflow: visible;
   }
 
   .tile-header {
@@ -611,10 +615,6 @@ body {
   .tile-body {
     display: none;
     padding: 10px;
-    max-height: calc(100vh - 140px);
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
-    overscroll-behavior: contain;
   }
 
   .tile-shell.mobile-open .tile-body {
@@ -634,7 +634,7 @@ body {
     align-items: center;
     justify-content: center;
     position: sticky;
-    top: 52px;
+    top: 0;
     z-index: 500;
     width: 100%;
     height: 36px;

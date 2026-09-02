@@ -87,12 +87,7 @@ function closeMobileTile(e) {
   const shell = e.target.closest(".tile-shell");
   shell.classList.remove("mobile-open");
   document.querySelector(".dashboard").classList.remove("mobile-has-open");
-  const resetScroll = () => {
-    window.scrollTo(0, 0);
-    document.documentElement.scrollTop = 0;
-    document.body.scrollTop = 0;
-  };
-  resetScroll();
-  requestAnimationFrame(resetScroll);
+  const page = document.querySelector(".dashboard-page");
+  if (page) page.scrollTop = 0;
 }
 </script>
