@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300">
+  <rect width="400" height="300" rx="18" fill="#e2f0d9"/>
+  <text x="200" y="70" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-weight="bold"
+        font-size="46" fill="#2f4a1a" text-anchor="middle">Animals</text>
+  <ellipse cx="200" cy="215" rx="42" ry="34" fill="#2f4a1a"/>
+  <ellipse cx="150" cy="165" rx="17" ry="22" fill="#2f4a1a"/>
+  <ellipse cx="190" cy="140" rx="17" ry="22" fill="#2f4a1a"/>
+  <ellipse cx="235" cy="145" rx="17" ry="22" fill="#2f4a1a"/>
+  <ellipse cx="262" cy="180" rx="15" ry="20" fill="#2f4a1a"/>
+</svg>

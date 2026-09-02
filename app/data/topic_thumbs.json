@@ -98,7 +98,7 @@
   {
     "match_type": "category",
     "pattern": "globenewswire",
-    "thumbnail_url": "/static/topic_thumbs/world.png",
+    "thumbnail_url": "/static/topic_thumbs/business.png",
     "priority": 2
   },
   {
@@ -400,5 +400,180 @@
     "pattern": "ndp",
     "thumbnail_url": "/static/topic_thumbs/ndp.png",
     "priority": 3
+  },
+
+  {
+    "match_type": "category",
+    "pattern": "crime",
+    "thumbnail_url": "/static/topic_thumbs/crime.svg",
+    "priority": 7
+  },
+  {
+    "match_type": "category",
+    "pattern": "rcmp",
+    "thumbnail_url": "/static/topic_thumbs/crime.svg",
+    "priority": 6
+  },
+  {
+    "match_type": "category",
+    "pattern": "astronomy",
+    "thumbnail_url": "/static/topic_thumbs/space.svg",
+    "priority": 6
+  },
+  {
+    "match_type": "category",
+    "pattern": "planetary science",
+    "thumbnail_url": "/static/topic_thumbs/space.svg",
+    "priority": 6
+  },
+  {
+    "match_type": "category",
+    "pattern": "earth",
+    "thumbnail_url": "/static/topic_thumbs/space.svg",
+    "priority": 5
+  },
+  {
+    "match_type": "category",
+    "pattern": "artificial intelligence",
+    "thumbnail_url": "/static/topic_thumbs/technology.svg",
+    "priority": 7
+  },
+  {
+    "match_type": "category",
+    "pattern": "information technology",
+    "thumbnail_url": "/static/topic_thumbs/technology.svg",
+    "priority": 6
+  },
+  {
+    "match_type": "category",
+    "pattern": "fashion",
+    "thumbnail_url": "/static/topic_thumbs/fashion.svg",
+    "priority": 6
+  },
+  {
+    "match_type": "category",
+    "pattern": "animals",
+    "thumbnail_url": "/static/topic_thumbs/animals.svg",
+    "priority": 6
+  },
+  {
+    "match_type": "category",
+    "pattern": "homes",
+    "thumbnail_url": "/static/topic_thumbs/housing.svg",
+    "priority": 6
+  },
+  {
+    "match_type": "category",
+    "pattern": "real estate",
+    "thumbnail_url": "/static/topic_thumbs/housing.svg",
+    "priority": 6
+  },
+  {
+    "match_type": "category",
+    "pattern": "entertainment",
+    "thumbnail_url": "/static/topic_thumbs/entertainment.svg",
+    "priority": 5
+  },
+  {
+    "match_type": "category",
+    "pattern": "music",
+    "thumbnail_url": "/static/topic_thumbs/entertainment.svg",
+    "priority": 4
+  },
+  {
+    "match_type": "category",
+    "pattern": "celebrity",
+    "thumbnail_url": "/static/topic_thumbs/entertainment.svg",
+    "priority": 4
+  },
+  {
+    "match_type": "category",
+    "pattern": "climate",
+    "thumbnail_url": "/static/topic_thumbs/climate.svg",
+    "priority": 6
+  },
+  {
+    "match_type": "category",
+    "pattern": "immigration",
+    "thumbnail_url": "/static/topic_thumbs/immigration.svg",
+    "priority": 6
+  },
+  {
+    "match_type": "category",
+    "pattern": "montreal food",
+    "thumbnail_url": "/static/topic_thumbs/food.svg",
+    "priority": 5
+  },
+  {
+    "match_type": "category",
+    "pattern": "montreal restaurants",
+    "thumbnail_url": "/static/topic_thumbs/food.svg",
+    "priority": 5
+  },
+  {
+    "match_type": "category",
+    "pattern": "fast food",
+    "thumbnail_url": "/static/topic_thumbs/food.svg",
+    "priority": 5
+  },
+  {
+    "match_type": "category",
+    "pattern": "nova scotia",
+    "thumbnail_url": "/static/topic_thumbs/atlantic.svg",
+    "priority": 8
+  },
+  {
+    "match_type": "category",
+    "pattern": "nfld",
+    "thumbnail_url": "/static/topic_thumbs/atlantic.svg",
+    "priority": 8
+  },
+  {
+    "match_type": "category",
+    "pattern": "pei",
+    "thumbnail_url": "/static/topic_thumbs/atlantic.svg",
+    "priority": 8
+  },
+  {
+    "match_type": "category",
+    "pattern": "calgary",
+    "thumbnail_url": "/static/topic_thumbs/prairies.svg",
+    "priority": 6
+  },
+  {
+    "match_type": "category",
+    "pattern": "edmonton",
+    "thumbnail_url": "/static/topic_thumbs/prairies.svg",
+    "priority": 6
+  },
+  {
+    "match_type": "category",
+    "pattern": "london",
+    "thumbnail_url": "/static/topic_thumbs/ontario_regional.svg",
+    "priority": 6
+  },
+  {
+    "match_type": "category",
+    "pattern": "hamilton",
+    "thumbnail_url": "/static/topic_thumbs/ontario_regional.svg",
+    "priority": 6
+  },
+  {
+    "match_type": "category",
+    "pattern": "british columbia",
+    "thumbnail_url": "/static/topic_thumbs/bc_pacific.svg",
+    "priority": 6
+  },
+  {
+    "match_type": "title",
+    "pattern": "blue jays",
+    "thumbnail_url": "/static/topic_thumbs/mlb.png",
+    "priority": 6
+  },
+  {
+    "match_type": "title",
+    "pattern": "openai",
+    "thumbnail_url": "/static/topic_thumbs/technology.svg",
+    "priority": 6
   }
 ]

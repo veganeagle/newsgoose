@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300">
+  <rect width="400" height="300" rx="18" fill="#ede0f7"/>
+  <text x="200" y="70" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-weight="bold"
+        font-size="46" fill="#4a1a6b" text-anchor="middle">Entertainment</text>
+  <polygon points="200,105 214,150 262,150 223,178 238,224 200,196 162,224 177,178 138,150 186,150" fill="#4a1a6b"/>
+</svg>
