@@ -3,7 +3,7 @@ import logging
 from contextlib import asynccontextmanager
 from datetime import datetime, timezone
 from fastapi import FastAPI, Request
-from fastapi.responses import FileResponse, RedirectResponse, HTMLResponse
+from fastapi.responses import FileResponse, RedirectResponse, HTMLResponse, PlainTextResponse, Response
 
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
@@ -55,7 +55,23 @@ app.include_router(weather.router)
 
 @app.get("/")
 async def root():
-  return RedirectResponse(url="/dashboard", status_code=307)
+  # Permanent, so search engines treat /dashboard as the one home page.
+  return RedirectResponse(url="/dashboard", status_code=301)
+
+
+SITE_URL = "https://newsgoose.ca"
+
+
+@app.get("/robots.txt", include_in_schema=False)
+async def robots_txt():
+    return PlainTextResponse(f"User-agent: *\nAllow: /\n\nSitemap: {SITE_URL}/sitemap.xml\n")
+
+
+@app.get("/sitemap.xml", include_in_schema=False)
+async def sitemap_xml():
+    urls = "".join(f"  <url><loc>{SITE_URL}{path}</loc></url>\n" for path in ("/dashboard", "/privacy"))
+    body = f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n{urls}</urlset>\n'
+    return Response(body, media_type="application/xml")
 
 
 @app.get("/sw.js")
